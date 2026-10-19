@@ -1,0 +1,18 @@
+{
+  "name": "lion-ar",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "verificar": "node scripts/verificar.mjs",
+    "build": "node scripts/verificar.mjs && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@google/model-viewer": "3.5.0"
+  },
+  "devDependencies": {
+    "vite": "5.4.11"
+  }
+}
