@@ -1,24 +1,90 @@
-/* Estilos globais para garantir que tudo ocupe a tela toda */
+/* Tela cheia, sem barras de rolagem */
 html, body {
     margin: 0;
     padding: 0;
-    width: 100vw; /* 100% da largura da viewport (tela) */
-    height: 100vh; /* 100% da altura da viewport (tela) */
-    overflow: hidden; /* Esconde barras de rolagem */
-}
-
-/* O container principal onde o modelo 3D será inserido */
-#ar-container {
-    position: absolute; /* Posição absoluta para preencher o body */
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    background: #f4f4f5;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #18181b;
 }
 
-/* O componente model-viewer que será criado pelo JavaScript */
+#ar-container {
+    position: fixed;
+    inset: 0;
+}
+
 model-viewer {
     width: 100%;
     height: 100%;
-    --poster-color: transparent; /* Remove a cor de fundo padrão durante o carregamento */
+    background: radial-gradient(circle at 50% 40%, #ffffff 0%, #e4e4e7 100%);
+    --poster-color: transparent;
+    --progress-bar-color: #e11d48;
 }
+
+/* Loader */
+.loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-size: 15px;
+    z-index: 2;
+}
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #d4d4d8;
+    border-top-color: #e11d48;
+    border-radius: 50%;
+    animation: gira 0.9s linear infinite;
+}
+@keyframes gira { to { transform: rotate(360deg); } }
+
+/* Mensagens de erro / lista de produtos */
+.mensagem {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 24px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+}
+.mensagem h1 { font-size: 20px; margin: 0; }
+.mensagem p  { margin: 0; color: #52525b; }
+.mensagem a {
+    display: block;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #e4e4e7;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Botão de Realidade Aumentada */
+.ar-button {
+    position: absolute;
+    left: 50%;
+    bottom: calc(24px + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    padding: 14px 26px;
+    border: 0;
+    border-radius: 999px;
+    background: #e11d48;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(225, 29, 72, 0.4);
+    cursor: pointer;
+}
+.ar-button:active { transform: translateX(-50%) scale(0.97); }

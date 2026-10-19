@@ -2,7 +2,7 @@
   {
     "id": "sup-br-001",
     "nome": "Suporte de Barra Simples",
-    "modelo_glb": "modelos/suporte_barra.glb",
+    "modelo_glb": "/modelos/suporte_barra.glb",
     "modelo_usdz": ""
   }
 ]
