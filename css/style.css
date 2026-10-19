@@ -1,0 +1,24 @@
+/* Estilos globais para garantir que tudo ocupe a tela toda */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw; /* 100% da largura da viewport (tela) */
+    height: 100vh; /* 100% da altura da viewport (tela) */
+    overflow: hidden; /* Esconde barras de rolagem */
+}
+
+/* O container principal onde o modelo 3D será inserido */
+#ar-container {
+    position: absolute; /* Posição absoluta para preencher o body */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* O componente model-viewer que será criado pelo JavaScript */
+model-viewer {
+    width: 100%;
+    height: 100%;
+    --poster-color: transparent; /* Remove a cor de fundo padrão durante o carregamento */
+}
